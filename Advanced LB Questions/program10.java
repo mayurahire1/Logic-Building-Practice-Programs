@@ -1,7 +1,4 @@
-// Accept a string and two words from user and replace the first word into second word.
-
-// Input : Hello world Hello my name is mayur
-// Output: Hi world Hi my name is mayur
+// Accept a string and two words from user and check whether string is Anagram or not.
 
 import java.util.*;
 
