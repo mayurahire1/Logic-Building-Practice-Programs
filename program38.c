@@ -237,7 +237,6 @@ void DeleteLast(PPNODE first)
     }
 }
 
-
 ////////////////////////////////////////////////////////////
 //
 //    Function name :  DeleteAtPos
@@ -280,7 +279,7 @@ void DeleteAtPos(PPNODE first, int iPos)
         }
 
         target = temp->next;
-        temp->next = target -> next;
+        temp->next = target->next;
         free(target);
     }
 }
@@ -294,45 +293,81 @@ int main()
 {
     PNODE head = NULL;
     int iRet = 0;
+    int iValue = 0;
+    int iPosition = 0;
+    int iChoice = 0;
 
-    InsertFirst(&head, 101);
-    InsertFirst(&head, 51);
-    InsertFirst(&head, 21);
-    InsertFirst(&head, 11);
+    while (iChoice != 9)
+    {
+        printf("\n-----------------------------------------------\n");
+        printf("1 : Insert Node at First Position\n");
+        printf("2 : Insert Node at Last Position\n");
+        printf("3 : Insert Node at Given Position\n");
+        printf("4 : Delete node from First Position\n");
+        printf("5 : Delete node from Last Position\n");
+        printf("6 : Delete node from Given Position\n");
+        printf("7 : Display all the nodes\n");
+        printf("8 : Count the nodes\n");
+        printf("-----------------------------------------------\n");
+        printf("Enter Your Choice: ");
+        scanf("%d", &iChoice);
 
-    Display(head);
-    iRet = Count(head);
-    printf("Number of nodes in the linked list : %d\n\n", iRet);
+        switch (iChoice)
+        {
+        case 1:
+            printf("\nEnter the value : ");
+            scanf("%d", &iValue);
 
-    InsertLast(&head, 111);
+            InsertFirst(&head, iValue);
+            break;
 
-    Display(head);
-    iRet = Count(head);
-    printf("Number of nodes in the linked list : %d\n\n", iRet);
+        case 2:
+            printf("\nEnter the value: ");
+            scanf("%d", &iValue);
 
-    InsertAtPos(&head, 99, 4);
+            InsertLast(&head, iValue);
+            break;
 
-    Display(head);
-    iRet = Count(head);
-    printf("Number of nodes in the linked list : %d\n\n", iRet);
+        case 3:
+            printf("\nEnter the value : ");
+            scanf("%d", &iValue);
+            printf("\nEnter the position: ");
+            scanf("%d", &iPosition);
 
-    DeleteFirst(&head);
+            InsertAtPos(&head, iValue, iPosition);
+            break;
 
-    Display(head);
-    iRet = Count(head);
-    printf("Number of nodes in the linked list : %d\n\n", iRet);
+        case 4:
+            DeleteFirst(&head);
+            break;
 
-    DeleteLast(&head);
+        case 5:
+            DeleteLast(&head);
+            break;
 
-    Display(head);
-    iRet = Count(head);
-    printf("Number of nodes in the linked list : %d\n\n", iRet);
+        case 6:
+            printf("\nEnter the position: ");
+            scanf("%d", &iPosition);
 
-    DeleteAtPos(&head,3);
+            DeleteAtPos(&head, iPosition);
 
-    Display(head);
-    iRet = Count(head);
-    printf("Number of nodes in the linked list : %d\n\n", iRet);
+        case 7:
+            printf("\nLinked list elements are : \n");
+            Display(head);
+            break;
+
+        case 8:
+            iRet = Count(head);
+            printf("\nNumber of nodes are: %d", iRet);
+            break;
+        case 9:
+            printf("\nThank you for using Application");
+            break;
+
+        default:
+            printf("Invalid Option");
+        }
+    }
 
     return 0;
 }
