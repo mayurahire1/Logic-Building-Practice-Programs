@@ -43,5 +43,7 @@ class program20
         {
             System.out.println(iNo + " is not a armstrong number");
         }
+
+        sobj.close();
     }
 }
