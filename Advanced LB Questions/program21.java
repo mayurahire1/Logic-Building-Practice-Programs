@@ -36,8 +36,6 @@ class program21
         {
             System.out.println(iNo + " is not Palindrome");
         }
-
         sobj.close();
-        
     }
 }

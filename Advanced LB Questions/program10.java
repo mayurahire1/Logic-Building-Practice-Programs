@@ -2,7 +2,7 @@
 
 import java.util.*;
 
-class program9
+class program10
 {
     public static boolean isAnagram(String str1, String str2)
     {
